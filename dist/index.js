@@ -609,7 +609,7 @@ function () {
               curlResponse = _context7.sent;
               char = Characteristic.SwingMode;
               _context7.t0 = curlResponse;
-              _context7.next = _context7.t0 === 'Fix' ? 7 : _context7.t0 === 'Up_And_Low' ? 8 : 9;
+              _context7.next = _context7.t0 === 'Fix' ? 7 : _context7.t0 === 'All' ? 8 : 9;
               break;
 
             case 7:
@@ -655,10 +655,10 @@ function () {
                         return 'Fix';
 
                       case char.SWING_ENABLED:
-                        return 'Up_And_Low';
+                        return 'All';
 
                       default:
-                        return 'Up_And_Low';
+                        return 'All';
                     }
                   }()
                 }), 'wind');
@@ -1055,8 +1055,8 @@ function () {
 
     if (this.userAllowedMode !== 'cool') {
       this.aircon.getCharacteristic(Characteristic.HeatingThresholdTemperature).setProps({
-        minValue: -10,
-        maxValue: 20,
+        minValue: 16,
+        maxValue: 30,
         minStep: 1
       }).on('get', callbackify(this.getTargetTemperature)).on('set', callbackify(this.setTargetTemperature));
     }
