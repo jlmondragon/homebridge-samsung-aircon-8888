@@ -122,8 +122,11 @@ If you are on Linux:
 ### Downgrade OpenSSL
 For the .pem certificate to work, it is necessary to downgrade the minimum version of the TLS protocol.
 This is done in the /etc/ssl/openssl.cnf config file. At the end of the file there is:
+
 ```
-system_default_sect]                                                                                                                                                              MinProtocol = TLSv1.0                                                                                                                                                              CipherString = DEFAULT@SECLEVEL=2
+[system_default_sect]
+MinProtocol = TLSv1.0
+CipherString = DEFAULT@SECLEVEL=2
 ```
 
 
