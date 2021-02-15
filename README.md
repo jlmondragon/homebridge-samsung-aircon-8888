@@ -105,7 +105,7 @@ Content-Length: 28
 
 Please note down the `DeviceToken` value. This is your AC token.
 
-### Install Root Certificate
+### Install Root Certificate (not always necessary)
 
 If you are on Mac, simply double click to install it.
 
@@ -118,6 +118,15 @@ If you are on Linux:
  
  sudo update-ca-certificates
  ```
+ 
+### Downgrade OpenSSL
+For the .pem certificate to work, it is necessary to downgrade the minimum version of the TLS protocol.
+This is done in the /etc/ssl/openssl.cnf config file. At the end of the file there is:
+```
+system_default_sect]                                                                                                                                                              MinProtocol = TLSv1.0                                                                                                                                                              CipherString = DEFAULT@SECLEVEL=2
+```
+
+
 
 ### Update Homebridge Config File
 
